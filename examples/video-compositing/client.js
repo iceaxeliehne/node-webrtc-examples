@@ -24,6 +24,7 @@ async function beforeAnswer(peerConnection) {
   localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
 
   const remoteStream = new MediaStream(peerConnection.getReceivers().map(receiver => receiver.track));
+  console.log(remoteStream);
   remoteVideo.srcObject = remoteStream;
 
   // NOTE(mroberts): This is a hack so that we can get a callback when the
